@@ -26,3 +26,8 @@ time.sleep(10)
 driver.close()
 
 
+
+# agustyast@gmail.com
+# Scrap131
+# adidas yeez
+
