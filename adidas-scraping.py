@@ -8,7 +8,6 @@ import time
 s = Service(r'D:\Project\RemoteWork\selenium-test\Browsers\chromedriver.exe')
 driver = webdriver.Chrome(service=s)
 driver.get('https://www.adidas.co.id/account-login')
-driver.maximize_window()
 
 
 def login_query(user, password, query):
@@ -108,3 +107,7 @@ def run():
     else:
         print('please input correct number')
         run()
+
+    driver.maximize_window()
+
+run()
