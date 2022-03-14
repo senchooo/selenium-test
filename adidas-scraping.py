@@ -87,34 +87,21 @@ def scrap():
         time.sleep(15)
 
 
-def divisi():
-    pass
-
-
 def run():
-    runing = int(input('please choose\n1. scraping + sorting filter\n2. scraping + divisi\n 3. with all\n choose your number: '))
+    runing = int(input('please choose\n1. scraping only\n2. scraping with sorting\nchoose your number: '))
     user = input('Input Your Username')
     password = input('Input Your Password')
     query = input('Input Your Query')
 
     if runing == 1:
-        sorter = int(input('sort by:\n1. recomended\n2. popular\n3. name A to Z\n4. name Z to A\n5. price low to high\n6. price high to low\nEnter the number you want: '))
         login_query(user=user, password=password, query=query)
-        sorting(sorter)
         scrap()
         driver.close()
         print('all item has scrap')
     elif runing == 2:
-        login_query(user=user, password=password, query=query)
-        divisi()
-        scrap()
-        driver.close()
-        print('all item has scrap')
-    elif runing == 3:
         sorter = int(input('sort by:\n1. recomended\n2. popular\n3. name A to Z\n4. name Z to A\n5. price low to high\n6. price high to low\nEnter the number you want: '))
         login_query(user=user, password=password, query=query)
         sorting(sorter)
-        divisi()
         scrap()
         driver.close()
         print('all item has scrap')
