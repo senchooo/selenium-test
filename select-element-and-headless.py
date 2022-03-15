@@ -6,8 +6,13 @@ from selenium.webdriver.chrome.service import Service
 
 print("started program")
 
+
+# headless = scrap tanpa membuka browser
+options = webdriver.ChromeOptions()
+options.headless = True
+
 s = Service(r'D:\Project\RemoteWork\selenium-test\Browsers\chromedriver.exe')
-driver = webdriver.Chrome(service=s)
+driver = webdriver.Chrome(service=s, options=options)
 
 # maximaze windows
 driver.maximize_window()
