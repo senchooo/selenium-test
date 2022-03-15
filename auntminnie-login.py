@@ -13,18 +13,15 @@ driver = webdriver.Chrome(service=s)
 
 driver.maximize_window()
 driver.delete_all_cookies()
-"""
+
 driver.get('https://www.auntminnie.com/index.aspx?sec=log')
 time.sleep(5)
-"""
 
-"""
 # fill login form
 driver.find_element(by=By.XPATH, value='//*[@id="ctl00_ctl00_pnlOutputText_Area2_ctl00_Login1_txtCN"]').send_keys('senchoparameswara')
 driver.find_element(by=By.XPATH, value='//*[@id="ctl00_ctl00_pnlOutputText_Area2_ctl00_Login1_txtPassword"]').send_keys('xxxtripl3x')
 time.sleep(10)
 driver.find_element(by=By.XPATH, value='//*[@id="ctl00_ctl00_pnlOutputText_Area2_ctl00_Login1_cmdSignIn"]').click()
-"""
 
 # get news item
 driver.get('https://www.auntminnie.com/index.aspx?sec=nws&sub=rad')
@@ -38,11 +35,12 @@ while True:
         title = i.find_element(by=By.CLASS_NAME, value='Head')
         link = title.find_element(by=By.TAG_NAME, value='a').get_attribute('href')
         print(title.text, link)
-    time.sleep(5)
-    driver.find_element(by=By.LINK_TEXT, value='next »').click()
 
-time.sleep(20)
+    try:
+        driver.find_element(by=By.LINK_TEXT, value='next »').click()
+        time.sleep(5)
+    except Exception:
+        break
 
-driver.close()
 print('login sucsess')
 
