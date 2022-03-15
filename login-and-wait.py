@@ -29,7 +29,8 @@ driver.get('https://www.auntminnie.com/index.aspx?sec=nws&sub=rad')
 
 # scraping data
 while True:
-    # handling error
+    # handling error (explicit wait)
+    # for implicity wait = driver.implicitly_wait(sencond)
     main = WebDriverWait(driver, 10).until(EC.presence_of_all_elements_located((By.CLASS_NAME, 'MoreNewsItem')))
     for i in main:
         title = i.find_element(by=By.CLASS_NAME, value='Head')

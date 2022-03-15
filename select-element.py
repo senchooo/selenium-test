@@ -33,6 +33,6 @@ search = driver.find_elements(by=By.XPATH, value='//*[@id="rso"]')
 print(search[0].text)
 
 # close browser
-driver.close()
+driver.minimize_window()
 
 print('done')
