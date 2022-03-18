@@ -10,7 +10,10 @@ key = [
     ('agustyast@gmail.com', 'scrap131'),  # True only email
 ]
 
-url = [('https://www.adidas.co.id/pria.html'), ('https://www.adidas.co.id/wanita.html')]
+url = [
+    ('https://www.adidas.co.id/pria.html', 'Jual Perlengkapan Olahraga Pria Terlengkap'),
+    ('https://www.adidas.co.id/wanita.html', 'Jual Perlengkapan Olahraga adidas Wanita')
+]
 
 
 @pytest.fixture()
@@ -38,13 +41,14 @@ def test_login(setup, email, password):
     assert tile == 'Akun saya'
 
 
-@pytest.mark.title
-@pytest.mark.parametrize('link', url)
-def test_title(setup, link):
+@pytest.mark.titles
+@pytest.mark.parametrize('link, titles', url)
+def test_title(setup, link, titles):
     setup.get(link)
-    tile = setup.title
     time.sleep(10)
-    print(tile)
+    upper = setup.title
+    print(upper)
+    assert upper == titles
 
 # for run with cmd:
 # first, cd (locate file)
